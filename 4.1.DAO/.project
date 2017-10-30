@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>Entidades</name>
+			<type>2</type>
+			<locationURI>WORKSPACE_LOC/3.1.Entidades/src</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>
