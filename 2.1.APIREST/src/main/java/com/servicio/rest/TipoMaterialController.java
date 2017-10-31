@@ -69,8 +69,8 @@ public class TipoMaterialController {
 	
 	@RequestMapping(value = "/TipoMaterial/DevolverTipoMaterial", method = RequestMethod.GET, 
 					produces ="application/json")
-	public @ResponseBody ArrayList<TipoMaterial> DevolverTipoMaterial(int idtipomaterial) {
-	ArrayList<TipoMaterial> tipmat = null;
+	public @ResponseBody TipoMaterial DevolverTipoMaterial(int idtipomaterial) {
+	TipoMaterial tipmat = null;
 	try {
 		tipmat = daoTipoMaterial.Instancia().DevolverTipoMaterial(idtipomaterial);
 	} catch (Exception e) {

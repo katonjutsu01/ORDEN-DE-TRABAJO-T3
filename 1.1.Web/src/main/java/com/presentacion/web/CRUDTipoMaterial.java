@@ -68,7 +68,7 @@ public class CRUDTipoMaterial {
 	public ModelAndView EditarTipoMaterial(@RequestParam(value="btnEditar") int idtipomaterial) {
 		try {
 			RestTemplate rest = new RestTemplate();
-			String URI= "http://localhost:8080/rest/CRUDTipoMaterial/DevolverTipoMaterial?idtipomaterial="+idtipomaterial;
+			String URI= "http://localhost:8080/rest/TipoMaterial/DevolverTipoMaterial?idtipomaterial="+idtipomaterial;
 			TipoMaterial tipmat = rest.getForObject(URI,TipoMaterial.class);
 			return new ModelAndView("/CRUDTipoMaterial/Editar","command", tipmat);
 			
@@ -82,7 +82,7 @@ public class CRUDTipoMaterial {
 	public String EditarTipoMaterial(@ModelAttribute("SpringWeb")TipoMaterial tipmat) {
 		try {
 			RestTemplate rest = new RestTemplate();
-			String URI= "http://localhost:8080/rest/TipoMaterial/EditarTipoMaterial?=idtipomaterial?"+tipmat.getIdtipomaterial()+"&descripcion"+tipmat.getDescripcion();
+			String URI= "http://localhost:8080/rest/TipoMaterial/EditarTipoMaterial?idtipomaterial="+tipmat.getIdtipomaterial()+"&descripcion="+tipmat.getDescripcion();
 			Boolean inserto = rest.getForObject(URI, Boolean.class);	
 			if(inserto) { 
 				return "redirect:/CRUDTipoMaterial/Lista";

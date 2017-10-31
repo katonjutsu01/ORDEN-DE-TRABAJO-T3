@@ -76,22 +76,20 @@ public class daoTipoMaterial {
 		return edito;
 	}
 	
-	public ArrayList<TipoMaterial> DevolverTipoMaterial(int _idtipomaterial) throws Exception{
+	public TipoMaterial DevolverTipoMaterial(int _idtipomaterial) throws Exception{
 		Connection cn = Conexion.conectar();
-		ArrayList<TipoMaterial> lista = new ArrayList<TipoMaterial>();
+		TipoMaterial tipmat = new TipoMaterial();
 		try {
 			CallableStatement cst = cn.prepareCall("{call spDevolverTipoMaterial(?)}");
 			cst.setInt(1, _idtipomaterial);
 			ResultSet rs = cst.executeQuery();
 			while(rs.next()){
-				TipoMaterial tipmap = new TipoMaterial();
-				tipmap.setDescripcion(rs.getString("descripcion"));
-				tipmap.setIdtipomaterial(rs.getInt("idtipomaterial"));
-				lista.add(tipmap);
+				tipmat.setDescripcion(rs.getString("descripcion"));
+				tipmat.setIdtipomaterial(rs.getInt("idtipomaterial"));
 			}
 		} catch (Exception e) { throw e;}
 		finally{cn.close();}
-		return lista;
+		return tipmat;
 	}
 	
 

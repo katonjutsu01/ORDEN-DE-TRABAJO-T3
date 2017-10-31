@@ -10,8 +10,10 @@
 	<ul>
 		<li>Usuario/VerificarAcceso</li>
 		<li>TipoMaterial/ListarTipoMaterial</li>
-		<li>TipoMaterial/EliminarTipoMaterial</li>
-		<li>TipoMaterial/InsertarTipoMaterial</li>
+		<li>TipoMaterial/EliminarTipoMaterial?idtipomaterial=</li>
+		<li>TipoMaterial/InsertarTipoMaterial?descripcion=</li>
+		<li>TipoMaterial/EditarTipoMaterial?idtipomaterial= &descripcion=</li>
+		<li>TipoMaterial/DevolverTipoMaterial?idtipomaterial=</li>
 	</ul>
 </body>
 </html>

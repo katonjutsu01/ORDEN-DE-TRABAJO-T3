@@ -1,18 +1,23 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="frm" %>
-<%@ page session="false" %>
-<html>
-<title>Editar Tipo de Material</title>
-<head>
-<body>
-	<div align="center">
-	<h3>EDITAR TIPO MATERIAL</h3>
+<jsp:include page="/WEB-INF/views/masterpage/masterintranetheader.jsp"></jsp:include>
+<h3>Mantenedor Tipo de Materiales</h3>
+</div>
+</div>
+<div class="clearfix"></div>
+<div class="row">
+<div class="col-md-12 col-sm-12 col-xs-12">
+<div class="x_panel">
+<div class="x_title">
+<h2>Editar Tipo de Material</h2>
+<div class="clearfix"></div>
+</div>
+<div class="x_content">
 	<frm:form method="POST" action="GuardarTipoMaterialE">
 		<table border="1">
-			<tr>
-				<td></td>    
-         		<td><frm:hidden path="idtipomaterial" /></td>  
-				<td></td>
+			<tr>  
+         		<frm:hidden path="idtipomaterial" />
+				<td>Descripción</td>
 				<td><frm:input path="descripcion" /></td>
 			</tr>
 			<tr>
@@ -28,7 +33,7 @@
 			}
 		%>
 	</frm:form>
-	<a href="${pageContext.request.contextPath}/CRUDTipoMaterial/Lista">Volver</a>
+	<div align="center">
+		<a href="${pageContext.request.contextPath}/CRUDTipoMaterial/Lista">Volver</a>
 	</div>
-</body>
-</html>
+<jsp:include page="/WEB-INF/views/masterpage/masterintranetfooter.jsp"></jsp:include>	
