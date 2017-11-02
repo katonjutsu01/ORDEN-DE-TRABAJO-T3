@@ -15,6 +15,12 @@
 <div class="x_content">
 	<a href="${pageContext.request.contextPath}/CRUDTipoMaterial/Nuevo">Nuevo</a>
 	<br/>
+	<%
+		if(request.getParameter("msg")!=null){
+			out.print("<p>"+request.getParameter("msg")+"</p>");
+		}
+	%>
+
 	<table border="1" style="width: 100%">
 		<thead>
 		<tr>

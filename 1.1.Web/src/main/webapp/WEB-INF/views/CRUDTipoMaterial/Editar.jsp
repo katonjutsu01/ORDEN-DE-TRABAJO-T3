@@ -18,7 +18,7 @@
 			<tr>  
          		<frm:hidden path="idtipomaterial" />
 				<td>Descripción</td>
-				<td><frm:input path="descripcion" /></td>
+				<td><frm:input path="descripcion" type="text"></frm:input></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center">

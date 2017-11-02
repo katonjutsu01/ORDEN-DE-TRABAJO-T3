@@ -1,5 +1,7 @@
 package Pojo;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class TipoMaterial {
     private int idtipomaterial;
     private String descripcion;

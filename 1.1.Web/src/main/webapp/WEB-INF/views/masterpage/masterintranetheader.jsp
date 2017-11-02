@@ -65,7 +65,7 @@
                                 <li>
                                     <a><i class="fa fa-desktop"></i> Servicio <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="@Url.Action("Nuevo", "OrdenTrabajo")">Orden de Trabajo</a></li>
+                                    	<li><a href="${pageContext.request.contextPath}/COREOrdenTrabajo/Nuevo">Orden de Trabajo</a></li>
                                         <li><a href="@Url.Action("Index","Pedido")">Pedido</a></li>
                                         <li><a href="@Url.Action("Listar", "ReporteOrdenTrabajo")">Reporte Orden Trabajo</a></li>
                                     </ul>

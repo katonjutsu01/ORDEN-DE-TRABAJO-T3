@@ -1,5 +1,9 @@
 package com.presentacion.web;
 import java.util.ArrayList;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.StringHttpMessageConverter;
+import org.springframework.http.converter.json.MappingJacksonHttpMessageConverter;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -54,13 +58,19 @@ public class CRUDTipoMaterial {
 	public String NuevoTipoMaterial(@ModelAttribute("SpringWeb")TipoMaterial tipmat) {
 		try {
 			RestTemplate rest = new RestTemplate();
-			String URI= "http://localhost:8080/rest/TipoMaterial/InsertarTipoMaterial?descripcion="+tipmat.getDescripcion();
-			Boolean inserto = rest.getForObject(URI, Boolean.class);	
-			if(inserto) { 
-				return "redirect:/CRUDTipoMaterial/Lista";
-			}else {return "error";}
+			if(tipmat.getDescripcion()!="") {
+				rest.getMessageConverters().add(new MappingJacksonHttpMessageConverter());
+				rest.getMessageConverters().add(new StringHttpMessageConverter());
+				String URI= "http://localhost:8080/rest/TipoMaterial/InsertarTipoMaterial";
+				ResponseEntity<String> result = rest.postForEntity(URI, tipmat, String.class);
+				//Boolean inserto = rest.getForObject(URI, Boolean.class);	
+				if(result.getBody().toString().equals("true")) { 
+					return "redirect:/CRUDTipoMaterial/Lista?msg=Se inserto con exito";
+				}
+			}
+			return "redirect:/CRUDTipoMaterial/Nuevo?msg=No se pudo insertar";
 		}catch(Exception e){
-			return "error";
+			return "redirect:/CRUDTipoMaterial/error?msg="+e.getMessage();
 		}
 	}
 	
@@ -82,13 +92,18 @@ public class CRUDTipoMaterial {
 	public String EditarTipoMaterial(@ModelAttribute("SpringWeb")TipoMaterial tipmat) {
 		try {
 			RestTemplate rest = new RestTemplate();
-			String URI= "http://localhost:8080/rest/TipoMaterial/EditarTipoMaterial?idtipomaterial="+tipmat.getIdtipomaterial()+"&descripcion="+tipmat.getDescripcion();
-			Boolean inserto = rest.getForObject(URI, Boolean.class);	
-			if(inserto) { 
-				return "redirect:/CRUDTipoMaterial/Lista";
-			}else {return "error";}
+			if(tipmat.getDescripcion()!="") {
+			rest.getMessageConverters().add(new MappingJacksonHttpMessageConverter());
+			rest.getMessageConverters().add(new StringHttpMessageConverter());
+			String URI= "http://localhost:8080/rest/TipoMaterial/EditarTipoMaterial";
+			ResponseEntity<String> result = rest.postForEntity(URI, tipmat, String.class);
+			if(result.getBody().toString().equals("true")&&tipmat.getDescripcion()!="") {
+				return "redirect:/CRUDTipoMaterial/Lista?msg=Se edito con exito";
+			}
+			}
+			return "redirect:/CRUDTipoMaterial/Editar?btnEditar="+tipmat.getIdtipomaterial()+"&msg=No se pudo insertar";
 		}catch(Exception e){
-			return "error";
+			return "redirect:/CRUDTipoMaterial/error?msg="+e.getMessage();
 		}
 	}
 	
