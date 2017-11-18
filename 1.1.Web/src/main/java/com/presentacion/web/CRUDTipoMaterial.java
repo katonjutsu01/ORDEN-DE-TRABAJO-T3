@@ -58,15 +58,12 @@ public class CRUDTipoMaterial {
 	public String NuevoTipoMaterial(@ModelAttribute("SpringWeb")TipoMaterial tipmat) {
 		try {
 			RestTemplate rest = new RestTemplate();
-			if(tipmat.getDescripcion()!="") {
-				rest.getMessageConverters().add(new MappingJacksonHttpMessageConverter());
-				rest.getMessageConverters().add(new StringHttpMessageConverter());
-				String URI= "http://localhost:8080/rest/TipoMaterial/InsertarTipoMaterial";
-				ResponseEntity<String> result = rest.postForEntity(URI, tipmat, String.class);
-				//Boolean inserto = rest.getForObject(URI, Boolean.class);	
-				if(result.getBody().toString().equals("true")) { 
-					return "redirect:/CRUDTipoMaterial/Lista?msg=Se inserto con exito";
-				}
+			rest.getMessageConverters().add(new MappingJacksonHttpMessageConverter());
+			rest.getMessageConverters().add(new StringHttpMessageConverter());
+			String URI= "http://localhost:8080/rest/TipoMaterial/InsertarTipoMaterial";
+			ResponseEntity<String> result = rest.postForEntity(URI, tipmat, String.class);
+			if(result.getBody().toString().equals("true")) { 
+				return "redirect:/CRUDTipoMaterial/Lista?msg=Se inserto con exito";
 			}
 			return "redirect:/CRUDTipoMaterial/Nuevo?msg=No se pudo insertar";
 		}catch(Exception e){
@@ -92,14 +89,12 @@ public class CRUDTipoMaterial {
 	public String EditarTipoMaterial(@ModelAttribute("SpringWeb")TipoMaterial tipmat) {
 		try {
 			RestTemplate rest = new RestTemplate();
-			if(tipmat.getDescripcion()!="") {
 			rest.getMessageConverters().add(new MappingJacksonHttpMessageConverter());
 			rest.getMessageConverters().add(new StringHttpMessageConverter());
 			String URI= "http://localhost:8080/rest/TipoMaterial/EditarTipoMaterial";
 			ResponseEntity<String> result = rest.postForEntity(URI, tipmat, String.class);
 			if(result.getBody().toString().equals("true")&&tipmat.getDescripcion()!="") {
 				return "redirect:/CRUDTipoMaterial/Lista?msg=Se edito con exito";
-			}
 			}
 			return "redirect:/CRUDTipoMaterial/Editar?btnEditar="+tipmat.getIdtipomaterial()+"&msg=No se pudo insertar";
 		}catch(Exception e){

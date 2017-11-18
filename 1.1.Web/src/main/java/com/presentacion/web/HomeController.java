@@ -36,20 +36,17 @@ public class HomeController {
 			String Password = u.getPassword();
 			//VERIFICAMOS ACCESO DESDE LA API REST
 			RestTemplate rest = new RestTemplate();
-			String URI=
-					"http://localhost:8080/rest/Usuario/VerificarAcceso" +
-						"?user="+Usuario+"&pass="+Password;
+			String URI="http://localhost:8080/rest/Usuario/VerificarAcceso"+"?user="+Usuario+"&pass="+Password;
 			Usuario result = rest.getForObject(URI, u.getClass());
 			HttpSession sesion =req.getSession(true);
 			sesion.setAttribute( "usuario", result );
 			if(result!=null) {
-				return "redirect:/CRUDTipoMaterial/Lista";
+				return "redirect:/MenuConstructor/Menu";
 			}else {
 				return "redirect:/?msg=Usuario o password no valido";
 			}
-
 		}catch(Exception e){
 			return "error";
 		}
-	}	
+	}
 }

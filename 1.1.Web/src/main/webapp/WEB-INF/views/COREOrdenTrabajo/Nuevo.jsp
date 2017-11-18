@@ -14,66 +14,78 @@
 </div>
 <div class="x_content">
 	<frm:form method="POST" action="GuardarOrdenTrabajo">
-		<table border="1">
-			<tr>
-				<td>Obra</td>
-				<td>
-				<frm:select path="obra.idobra" multiple="false">
-				<frm:option value="0" label="Selecciona una Obra" />
-					<c:forEach items= "${obras}" var= "list">
-						<frm:option value="${list.idobra}" label="${list.descripcion}"/>
-					</c:forEach>
-				</frm:select>
-				</td>
-			</tr>
-			<tr>
-				<td>Actividad</td>
-				<td>
-				<frm:select path="actividad.idActividad" multiple="false">
-				<frm:option value="0" label="Selecciona una Actividad" />
-					<c:forEach items= "${actividades}" var= "list">
-						<frm:option value="${list.idActividad}" label="${list.descripcion}"/>
-					</c:forEach>
-				</frm:select>
-				</td>
-			</tr>
-			<tr>
-				<td>Trabajador</td>
-				<td>
-				<frm:select path="trabajador.idTrabajador" multiple="false">
-				<frm:option value="0" label="Selecciona un Trabajador" />
-					<c:forEach items= "${trabajadores}" var= "list">
-						<frm:option value="${list.idTrabajador}" label="${list.apellidos}"/>
-					</c:forEach>
-				</frm:select>
-				</td>
-			</tr>
-			<tr>
-				<td>Nombre</td>
-				<td><frm:input path="nombre" type="text"></frm:input></td>
-			</tr>
-			<tr>
-				<td>Fecha inicio</td>
-				<td><frm:input path="fechaini" type="date"></frm:input></td>
-			</tr>
-			<tr>
-				<td>Fecha fin</td>
-				<td><frm:input path="fechafin" type="date"></frm:input></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center">
-					<input type="submit" value="Guardar"/>
-					<input type="reset" value="Limpiar"/>
-				</td>
-			</tr>
-		</table>
-		<%
-			if(request.getParameter("msg")!=null){
-				out.print("<p>"+request.getParameter("msg")+"</p>"); 
-			}
-		%>
+	    <div class="col-lg-12">
+	        <div class="panel panel-primary">
+	            <div class="panel-heading">
+	                Datos de la Orden
+	            </div>
+				<div class="panel-body">
+					<div class="row">
+						<!--   Obra   -->
+						<div class = "control-label col-md-2"><p>Obra</p></div>
+						<div class="col-lg-10">
+						<frm:select path="obra.idobra" multiple="false">
+						<frm:option value="0" label="Selecciona una Obra" />
+							<c:forEach items= "${obras}" var= "list">
+								<frm:option value="${list.idobra}" label="${list.descripcion}"/>
+							</c:forEach>
+						</frm:select>
+						</div>
+					</div>
+		            <div class="row">
+		                <!--   Actividad   -->
+						<div class = "control-label col-md-2"><p>Actividad</p></div>
+						<div class="col-lg-10">
+						<frm:select path="actividad.idActividad" multiple="false">
+						<frm:option value="0" label="Selecciona una Actividad" />
+							<c:forEach items= "${actividades}" var= "list">
+								<frm:option value="${list.idActividad}" label="${list.descripcion}"/>
+							</c:forEach>
+						</frm:select>
+						</div>
+					</div>
+					<div class="row">
+		                <!--   Trabajador   -->
+		                <div class = "control-label col-md-2"><p>Trabajador</p></div>
+		                <div class="col-lg-10">
+						<frm:select path="trabajador.idTrabajador" multiple="false">
+						<frm:option value="0" label="Selecciona un Trabajador" />
+							<c:forEach items= "${trabajadores}" var= "list">
+								<frm:option value="${list.idTrabajador}" label="${list.apellidos}"/>
+							</c:forEach>
+						</frm:select>
+						</div>
+					</div>
+					<div class="row">
+						<div class = "control-label col-md-2"><p>Nombre</p></div>
+						<div class="col-lg-10">
+						<frm:input path="nombre" type="text" required="required" oninvalid="setCustomValidity('Ingresa el nombre')" 
+		                 oninput="setCustomValidity('')"/>
+						</div>
+					</div>
+					<div class="row">
+						<div class = "control-label col-md-2"><p>Fecha inicio</p></div>
+						<div class="col-lg-10">
+						<frm:input path="fechaini" type="date" required="required" oninvalid="setCustomValidity('Ingresa la fecha de Inicio')" 
+		                 oninput="setCustomValidity('')"/>
+						</div>
+					</div>
+					<div class="row">
+						<div class = "control-label col-md-2"><p>Fecha fin</p></div>
+						<div class="col-lg-10">
+						<frm:input path="fechafin" type="date" required="required" oninvalid="setCustomValidity('Ingresa la fecha de Fin')" 
+		                 oninput="setCustomValidity('')"/>
+						</div>
+					</div>
+				</div>
+				<div class="panel-body">
+					<input type="submit" value="Guardar" class="btn btn-success"/>
+					<a class="btn btn-info" href="${pageContext.request.contextPath}/CRUDTipoMaterial/Lista">Volver</a>
+				</div>
+				<div class="panel-body">
+					<% if(request.getParameter("msg")!=null) out.print("<p style=color:blue;>"+request.getParameter("msg")+"</p>"); %>
+				</div>
+			</div>
+		</div>
 	</frm:form>
-	<div align="center">
-		<a href="${pageContext.request.contextPath}/CRUDTipoMaterial/Lista">Volver</a>
-	</div>
 <jsp:include page="/WEB-INF/views/masterpage/masterintranetfooter.jsp"></jsp:include>	

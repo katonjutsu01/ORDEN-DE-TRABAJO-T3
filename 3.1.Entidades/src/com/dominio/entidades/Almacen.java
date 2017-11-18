@@ -1,12 +1,12 @@
 package com.dominio.entidades;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Almacen {
     private int idalmacen;
     private String direccion;
     private String nombre; 
-    private List<StockAlmacen> stock;
+    private ArrayList<StockAlmacen> stock;
 	public int getIdalmacen() {
 		return idalmacen;
 	}
@@ -25,10 +25,10 @@ public class Almacen {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public List<StockAlmacen> getStock() {
+	public ArrayList<StockAlmacen> getStock() {
 		return stock;
 	}
-	public void setStock(List<StockAlmacen> stock) {
+	public void setStock(ArrayList<StockAlmacen> stock) {
 		this.stock = stock;
 	}
 }

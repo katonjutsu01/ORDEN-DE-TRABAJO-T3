@@ -18,7 +18,8 @@
 			<tr>  
          		<frm:hidden path="idtipomaterial" />
 				<td>Descripción</td>
-				<td><frm:input path="descripcion" type="text"></frm:input></td>
+				<td><frm:input path="descripcion" type="text" required="required" oninvalid="setCustomValidity('Ingresa la descripción')" 
+                 oninput="setCustomValidity('')"/>
 			</tr>
 			<tr>
 				<td colspan="2" align="center">

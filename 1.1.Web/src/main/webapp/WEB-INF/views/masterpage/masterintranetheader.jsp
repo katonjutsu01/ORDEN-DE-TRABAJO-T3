@@ -1,4 +1,5 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
+<%@ page import="Pojo.Usuario" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,23 +24,27 @@
     <s:url value="/resources/Bootstrap/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" var="css7"/>
     <link href="${css7}" rel="stylesheet"/>
 </head>
+<%
+	HttpSession a = request.getSession(); 
+	Usuario u = (Usuario) a.getAttribute("usuario");
+%>
 <body class="nav-md">
     <div class="container body">
         <div class="main_container">
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="@Url.Action("Menu","MenuConstructor")" class="site_title"><i class="fa fa-briefcase"></i> <span>Const. Bectek</span></a>
+                        <a href="${pageContext.request.contextPath}/MenuConstructor/Menu" class="site_title"><i class="fa fa-briefcase"></i> <span>Const. Bectek</span></a>
                     </div>
                     <div class="clearfix"></div>
                     <!-- menu profile quick info -->
                     <div class="profile clearfix">
                         <div class="profile_pic">
-                            <img src="~/Imagenes/@ViewBag.imagen" alt="..." class="img-circle profile_img">
+                            <img src="../resources/Bootstrap/images/${usuario.imagen}"  alt="..." class="img-circle profile_img"> 
                         </div>
                         <div class="profile_info">
-                            <span>Welcome,</span>
-                            <h2>@ViewBag.usuario</h2>
+                            <span>Bienvenido,</span>
+                            <h2>${usuario.trabajador.nombres} ${usuario.trabajador.apellidos}</h2>
                         </div>
                         <div class="clearfix"></div>
                     </div>
@@ -51,23 +56,19 @@
                             <h3>General</h3>
                             <ul class="nav side-menu">
                                 <li>
-                                    <a href="@Url.Action("Menu","MenuConstructor")"><i class="fa fa-home"></i> Home </a>
+                                    <a href="${pageContext.request.contextPath}/MenuConstructor/Menu"><i class="fa fa-home"></i> Home </a>
                                 </li>
                                 <li>
                                     <a><i class="fa fa-edit"></i> Registros <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                     	<li><a href="${pageContext.request.contextPath}/CRUDTipoMaterial/Lista">Tipo de Material</a></li>
-                                        <li><a href="@Url.Action("Listar","MantenedorActividad")">Actividad</a></li>
-                                        <li><a href="@Url.Action("Listar","MantenedorMaterial")">Material</a></li>
-                                        <li><a href="@Url.Action("Listar","MantenedorObra")">Obra</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <a><i class="fa fa-desktop"></i> Servicio <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                     	<li><a href="${pageContext.request.contextPath}/COREOrdenTrabajo/Nuevo">Orden de Trabajo</a></li>
-                                        <li><a href="@Url.Action("Index","Pedido")">Pedido</a></li>
-                                        <li><a href="@Url.Action("Listar", "ReporteOrdenTrabajo")">Reporte Orden Trabajo</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/COREPedido/Index">Pedido</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -86,11 +87,11 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li class="">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="~/Imagenes/@ViewBag.imagen" alt="">@ViewBag.usuario
+                                    <img src="../resources/Bootstrap/images/${usuario.imagen}" alt="">${usuario.userName}
                                     <span class=" fa fa-angle-down"></span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-usermenu pull-right">
-                                    <li><a href="@Url.Action("VerificarAcceso","LoginConstructor")"><i class="fa fa-sign-out pull-right"></i> Cerrar Session</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/MenuConstructor/CerrarSesion"><i class="fa fa-sign-out pull-right"></i> Cerrar Session</a></li>
                                 </ul>
                             </li>
                         </ul>

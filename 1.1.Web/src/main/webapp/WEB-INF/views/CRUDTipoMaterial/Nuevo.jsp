@@ -17,7 +17,9 @@
 		<table border="1">
 			<tr>
 				<td>Descripción</td>
-				<td><frm:input path="descripcion" type="text"></frm:input></td>
+				<td><frm:input path="descripcion" type="text" required="required" oninvalid="setCustomValidity('Ingresa la descripción')" 
+                 oninput="setCustomValidity('')"/>
+				</td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center">

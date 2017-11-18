@@ -48,18 +48,18 @@ public class COREOrdenTrabajo {
 	public String NuevoOrden(@ModelAttribute("SpringWeb")Ordendetrabajo o) {
 		try {
 			RestTemplate rest = new RestTemplate();
-				rest.getMessageConverters().add(new MappingJacksonHttpMessageConverter());
-				rest.getMessageConverters().add(new StringHttpMessageConverter());
-				o.setEstado("Iniciado");
-				String URI= "http://localhost:8080/rest/Orden/InsertarOrden";
-				String URIE= "http://localhost:8080/rest/Trabajador/EditarTrabajador?idTrabajador="+o.getTrabajador().getIdTrabajador()
-						    +"&estado=false";
-				ResponseEntity<String> result = rest.postForEntity(URI, o, String.class);
-				Boolean edito = rest.getForObject(URIE, Boolean.class);	
-				if(result.getBody().toString().equals("true")&&edito) { 
-					return "redirect:/CRUDTipoMaterial/Lista";
-				}
-			return "redirect:/COREOrdenTrabajo/Nuevo";
+			rest.getMessageConverters().add(new MappingJacksonHttpMessageConverter());
+			rest.getMessageConverters().add(new StringHttpMessageConverter());
+			o.setEstado("Iniciado");
+			String URI= "http://localhost:8080/rest/Orden/InsertarOrden";
+			String URIE= "http://localhost:8080/rest/Trabajador/EditarTrabajador?idTrabajador="+o.getTrabajador().getIdTrabajador()
+					    +"&estado=false";
+			ResponseEntity<String> result = rest.postForEntity(URI, o, String.class);
+			Boolean edito = rest.getForObject(URIE, Boolean.class);	
+			if(result.getBody().toString().equals("true")&&edito) { 
+				return "redirect:/COREOrdenTrabajo/Nuevo?msg=Se inserto con exito";
+			}
+			return "redirect:/COREOrdenTrabajo/Nuevo?msg=No se pudo insertar";
 		}catch(Exception e){
 			return "redirect:/COREOrdenTrabajo/error?msg="+e.getMessage();
 		}
