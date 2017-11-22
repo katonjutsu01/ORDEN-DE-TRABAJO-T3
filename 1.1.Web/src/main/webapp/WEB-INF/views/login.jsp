@@ -29,7 +29,7 @@
             <div class="animate form login_form">
                 <section class="login_content">
                     <frm:form method="post" action="VerificarAcceso">
-                        <h1>Login Contructor</h1>
+                        <h1>Login Constructor</h1>
                         <div>
                             <frm:input path="UserName" type="text" class="form-control" placeholder="Username" required="required" oninvalid="setCustomValidity('Ingresa el Username')" 
 		                 oninput="setCustomValidity('')"/>
@@ -51,9 +51,6 @@
                             <br />
                             <div>
                                 <h1><i class="fa fa-briefcase"></i> Constructora Bectek</h1>
-                                <a href="${pageContext.request.contextPath}/CRUDTipoMaterial/Lista">CRUD Tipo Material</a>
-                                <a href="${pageContext.request.contextPath}/COREOrdenTrabajo/Nuevo">CORE Orden Trabajo</a>
-                                <a href="${pageContext.request.contextPath}/COREPedido/Index">CORE Pedido</a>
                             </div>
                         </div>
                     </frm:form>

@@ -24,7 +24,7 @@
 						<!--   Obra   -->
 						<div class = "control-label col-md-2"><p>Obra</p></div>
 						<div class="col-lg-10">
-						<frm:select path="obra.idobra" multiple="false">
+						<frm:select path="obra.idobra" multiple="false" class="form-control">
 						<frm:option value="0" label="Selecciona una Obra" />
 							<c:forEach items= "${obras}" var= "list">
 								<frm:option value="${list.idobra}" label="${list.descripcion}"/>
@@ -36,7 +36,7 @@
 		                <!--   Actividad   -->
 						<div class = "control-label col-md-2"><p>Actividad</p></div>
 						<div class="col-lg-10">
-						<frm:select path="actividad.idActividad" multiple="false">
+						<frm:select path="actividad.idActividad" multiple="false" class="form-control">
 						<frm:option value="0" label="Selecciona una Actividad" />
 							<c:forEach items= "${actividades}" var= "list">
 								<frm:option value="${list.idActividad}" label="${list.descripcion}"/>
@@ -48,7 +48,7 @@
 		                <!--   Trabajador   -->
 		                <div class = "control-label col-md-2"><p>Trabajador</p></div>
 		                <div class="col-lg-10">
-						<frm:select path="trabajador.idTrabajador" multiple="false">
+						<frm:select path="trabajador.idTrabajador" multiple="false" class="form-control">
 						<frm:option value="0" label="Selecciona un Trabajador" />
 							<c:forEach items= "${trabajadores}" var= "list">
 								<frm:option value="${list.idTrabajador}" label="${list.apellidos}"/>
@@ -60,30 +60,32 @@
 						<div class = "control-label col-md-2"><p>Nombre</p></div>
 						<div class="col-lg-10">
 						<frm:input path="nombre" type="text" required="required" oninvalid="setCustomValidity('Ingresa el nombre')" 
-		                 oninput="setCustomValidity('')"/>
+		                 oninput="setCustomValidity('')" class="form-control"/>
 						</div>
 					</div>
 					<div class="row">
 						<div class = "control-label col-md-2"><p>Fecha inicio</p></div>
 						<div class="col-lg-10">
 						<frm:input path="fechaini" type="date" required="required" oninvalid="setCustomValidity('Ingresa la fecha de Inicio')" 
-		                 oninput="setCustomValidity('')"/>
+		                 oninput="setCustomValidity('')" class="form-control"/>
 						</div>
 					</div>
 					<div class="row">
-						<div class = "control-label col-md-2"><p>Fecha fin</p></div>
+						<div class = "control-label col-md-2" ><p>Fecha fin</p></div>
 						<div class="col-lg-10">
 						<frm:input path="fechafin" type="date" required="required" oninvalid="setCustomValidity('Ingresa la fecha de Fin')" 
-		                 oninput="setCustomValidity('')"/>
+		                 oninput="setCustomValidity('')" class="form-control"/>
 						</div>
 					</div>
 				</div>
+				<div align="center">
 				<div class="panel-body">
 					<input type="submit" value="Guardar" class="btn btn-success"/>
 					<a class="btn btn-info" href="${pageContext.request.contextPath}/CRUDTipoMaterial/Lista">Volver</a>
 				</div>
 				<div class="panel-body">
 					<% if(request.getParameter("msg")!=null) out.print("<p style=color:blue;>"+request.getParameter("msg")+"</p>"); %>
+				</div>
 				</div>
 			</div>
 		</div>

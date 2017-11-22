@@ -9,7 +9,7 @@
             <!-- footer content -->
             <footer>
                 <div class="pull-right">
-                    DIARS 2017
+                     Proyecto Orden 
                 </div>
                 <div class="clearfix"></div>
             </footer>

@@ -91,7 +91,7 @@
                             <input type="button" value="Agregar" class="btn btn-danger" data-toggle="modal" data-target="#myModal" />
                         </div>
                         <div class="panel-body">
-                            <div class="table-responsive">
+                            <div class="table-responsive" id="PartialDetalle">
                             	
                             </div>
                         </div>
@@ -117,6 +117,9 @@
 
     var muestradetalle = function () {
         
+    }
+    var muestradetalle = function () {
+        $('#PartialDetalle').load('@Url.Action("Detalle")')
     }
 </script>
 <jsp:include page="/WEB-INF/views/masterpage/masterintranetfooter.jsp"></jsp:include>	

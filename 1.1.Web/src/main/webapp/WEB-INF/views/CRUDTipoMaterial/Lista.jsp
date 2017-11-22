@@ -9,47 +9,41 @@
 <div class="col-md-12 col-sm-12 col-xs-12">
 <div class="x_panel">
 <div class="x_title">
-<h2>Lista de Tipo de Materiales</h2>
+<h2>Constructora Bectek</h2>
 <div class="clearfix"></div>
 </div>
 <div class="x_content">
-	<a href="${pageContext.request.contextPath}/CRUDTipoMaterial/Nuevo">Nuevo</a>
+	<a href="${pageContext.request.contextPath}/CRUDTipoMaterial/Nuevo" class="btn btn-success">Nuevo</a>
 	<br/>
 	<%
 		if(request.getParameter("msg")!=null){
-			out.print("<p>"+request.getParameter("msg")+"</p>");
+			out.print("<p style=color:green;>"+request.getParameter("msg")+"</p>");
 		}
 	%>
-
-	<table border="1" style="width: 100%">
+<div class="table-responsive">
+	<table class="table table-striped projects">
 		<thead>
 		<tr>
 			<th>Id</th>
 			<th>Descripción</th>
-			<th></th>
-			<th></th>
 		</tr>
 		</thead>
-		<tbody align="center">
+		<tbody>
 			<c:forEach items= "${listaTM}" var= "list">
 			<tr>
 				<td><c:out value="${list.idtipomaterial}"/></td>
 				<td><c:out value="${list.descripcion}"/></td>
 				<td>
 				<frm:form method="GET" action="Elimina">
-					<button name="btnEliminar" value="${list.idtipomaterial}">ELIMINA</button>
+					<button name="btnEliminar" value="${list.idtipomaterial}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>ELIMINA</button>
 				</frm:form>
-				</td>
-				<td>
 				<frm:form method="GET" action="Editar">
-					<button name="btnEditar" value="${list.idtipomaterial}">EDITA</button>
+					<button name="btnEditar" value="${list.idtipomaterial}"  class="btn btn-info btn-xs" ><i class="fa fa-pencil"></i>EDITA</button>
 				</frm:form>
 				</td>			
 			</tr>
 			</c:forEach>
 		</tbody>
 	</table>
-	<div align="center">
-		<a href="${pageContext.request.contextPath}/">Volver</a>
 	</div>
 <jsp:include page="/WEB-INF/views/masterpage/masterintranetfooter.jsp"></jsp:include>	
