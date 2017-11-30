@@ -1,0 +1,17 @@
+D:\CHIBOLO\usuario\Desktop\Orden Escritorio\Solucion Orden\Orden de trabajo\bin\Debug\Orden de trabajo.exe.config
+D:\CHIBOLO\usuario\Desktop\Orden Escritorio\Solucion Orden\Orden de trabajo\obj\Debug\Orden de trabajo.csprojResolveAssemblyReference.cache
+D:\CHIBOLO\usuario\Desktop\Orden Escritorio\Solucion Orden\Orden de trabajo\obj\Debug\Orden_de_trabajo.Form1.resources
+D:\CHIBOLO\usuario\Desktop\Orden Escritorio\Solucion Orden\Orden de trabajo\obj\Debug\Orden_de_trabajo.Properties.Resources.resources
+D:\CHIBOLO\usuario\Desktop\Orden Escritorio\Solucion Orden\Orden de trabajo\obj\Debug\Orden de trabajo.csproj.GenerateResource.Cache
+D:\CHIBOLO\usuario\Desktop\Orden Escritorio\Solucion Orden\Orden de trabajo\bin\Debug\Orden de trabajo.exe
+D:\CHIBOLO\usuario\Desktop\Orden Escritorio\Solucion Orden\Orden de trabajo\bin\Debug\Orden de trabajo.pdb
+D:\CHIBOLO\usuario\Desktop\Orden Escritorio\Solucion Orden\Orden de trabajo\bin\Debug\Newtonsoft.Json.dll
+D:\CHIBOLO\usuario\Desktop\Orden Escritorio\Solucion Orden\Orden de trabajo\bin\Debug\Newtonsoft.Json.xml
+D:\CHIBOLO\usuario\Desktop\Orden Escritorio\Solucion Orden\Orden de trabajo\obj\Debug\Orden de trabajo.exe
+D:\CHIBOLO\usuario\Desktop\Orden Escritorio\Solucion Orden\Orden de trabajo\obj\Debug\Orden de trabajo.pdb
+D:\CHIBOLO\usuario\Desktop\Orden Escritorio\Solucion Orden\Orden de trabajo\obj\Debug\Orden_de_trabajo.PantallaMantenedor.resources
+D:\CHIBOLO\usuario\Desktop\Orden Escritorio\Solucion Orden\Orden de trabajo\obj\Debug\Orden_de_trabajo.CrearActividad.resources
+D:\CHIBOLO\usuario\Desktop\Orden Escritorio\Solucion Orden\Orden de trabajo\obj\Debug\Orden_de_trabajo.ListaObra.resources
+D:\CHIBOLO\usuario\Desktop\Orden Escritorio\Solucion Orden\Orden de trabajo\obj\Debug\Orden_de_trabajo.CrearObra.resources
+D:\CHIBOLO\usuario\Desktop\Orden Escritorio\Solucion Orden\Orden de trabajo\obj\Debug\Orden_de_trabajo.ListaActividad.resources
+D:\CHIBOLO\usuario\Desktop\Orden Escritorio\Solucion Orden\Orden de trabajo\obj\Debug\Orden_de_trabajo.ListaMaterial.resources
