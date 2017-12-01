@@ -145,7 +145,7 @@ namespace Orden_de_trabajo.Clase_REST
 
         }
         #endregion
-
+        
         #region MANTENEDOR MATERIAL
         public static async Task<List<entMaterial>> ListarMaterial()
         {
@@ -171,26 +171,24 @@ namespace Orden_de_trabajo.Clase_REST
             }
 
         }
-        #endregion
-        /*
-        #region MANTENEDOR OBRA
-        public static async Task<List<entObra>> ListarMaterial()
+
+        public static async Task<List<entTipoMaterial>> ListarTipoMaterial()
         {
             using (HttpClient rest = new HttpClient())
             {
-                using (HttpResponseMessage response = await rest.GetAsync("http://localhost:8080/rest/Material/ListarMaterial"))
+                using (HttpResponseMessage response = await rest.GetAsync("http://localhost:8080/rest/TipoMaterial/ListarTipoMaterial"))
                 {
                     using (HttpContent content = response.Content)
                     {
                         String b = await content.ReadAsStringAsync();
-                        var obj = JsonConvert.DeserializeObject<List<entMaterial>>(b);
-                        List<entMaterial> m = obj.ToList();
-                        if (m != null)
+                        var obj = JsonConvert.DeserializeObject<List<entTipoMaterial>>(b);
+                        List<entTipoMaterial> tm = obj.ToList();
+                        if (tm != null)
                         {
-                            return await Task.Run(() => m);
+                            return await Task.Run(() => tm);
                         }
                         else
-                            return await Task.FromResult<List<entMaterial>>(null);
+                            return await Task.FromResult<List<entTipoMaterial>>(null);
                     }
 
                 }
@@ -198,6 +196,90 @@ namespace Orden_de_trabajo.Clase_REST
             }
 
         }
-        #endregion*/
+        public static async Task<Boolean> InsertarMaterial(String nombre, String idTipMat)
+        {
+            using (HttpClient rest = new HttpClient())
+            {
+                using (HttpResponseMessage response = await rest.GetAsync("http://localhost:8080/rest/Material/InsertarMaterial?nombre=" + nombre + "&idtipomaterial=" + idTipMat))
+                {
+                    using (HttpContent content = response.Content)
+                    {
+                        String b = await content.ReadAsStringAsync();
+                        var obj = JsonConvert.DeserializeObject<Boolean>(b);
+                        Boolean inserto = (Boolean)obj;
+                        return await Task.Run(() => inserto);
+                    }
+
+                }
+
+            }
+        }
+
+
+        public static async Task<entMaterial> DevolverMaterial(String id)
+        {
+            using (HttpClient rest = new HttpClient())
+            {
+                using (HttpResponseMessage response = await rest.GetAsync("http://localhost:8080/rest/Material/DevolverMaterial?idmaterial=" + id))
+                {
+                    using (HttpContent content = response.Content)
+                    {
+                        String b = await content.ReadAsStringAsync();
+                        var obj = JsonConvert.DeserializeObject<entMaterial>(b);
+                        entMaterial a = (entMaterial)obj;
+                        if (a != null)
+                        {
+                            return await Task.Run(() => a);
+                        }
+                        else
+                            return await Task.FromResult<entMaterial>(null);
+                    }
+
+                }
+
+            }
+
+        }
+
+        public static async Task<Boolean> ModificarMaterial(String idMat, String nombre, String idTipMat)
+        {
+            using (HttpClient rest = new HttpClient())
+            {
+                using (HttpResponseMessage response = await rest.GetAsync("http://localhost:8080/rest/Material/EditarMaterial?idmaterial=" + idMat + "&nombre=" + nombre + "&idtipomaterial=" + idTipMat))
+                {
+                    using (HttpContent content = response.Content)
+                    {
+                        String b = await content.ReadAsStringAsync();
+                        var obj = JsonConvert.DeserializeObject<Boolean>(b);
+                        Boolean modifico = (Boolean)obj;
+                        return await Task.Run(() => modifico);
+                    }
+
+                }
+
+            }
+
+        }
+
+        public static async Task<Boolean> EliminarMaterial(String id)
+        {
+            using (HttpClient rest = new HttpClient())
+            {
+                using (HttpResponseMessage response = await rest.GetAsync("http://localhost:8080/rest/Material/EliminarMaterial?idmaterial=" + id))
+                {
+                    using (HttpContent content = response.Content)
+                    {
+                        String b = await content.ReadAsStringAsync();
+                        var obj = JsonConvert.DeserializeObject<Boolean>(b);
+                        Boolean elimino = (Boolean)obj;
+                        return await Task.Run(() => elimino);
+                    }
+
+                }
+
+            }
+
+        }
+        #endregion
     }
 }

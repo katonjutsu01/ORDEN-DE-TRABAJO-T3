@@ -41,5 +41,17 @@ namespace Orden_de_trabajo
         {
             Application.Exit();
         }
+
+        private void mantenerdorMaterialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void crearToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            CrearMaterial cm = new CrearMaterial();
+            cm.Show();
+            Hide();
+        }
     }
 }

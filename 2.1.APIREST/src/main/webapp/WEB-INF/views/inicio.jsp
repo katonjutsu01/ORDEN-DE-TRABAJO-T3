@@ -44,6 +44,8 @@
 		<li>Obra/EditarObra?idobra= &nombre= &descripcion= &idpresupuesto= &activo=</li>
 		<li>Obra/DevolverObra?idobra=</li>	
 	</ul>		
+	<p>Presupuesto</p>
+	<li>Presupuesto/ListarPresupuesto</li>
 	<p>CORE ORDEN TRABAJO</p>
 	<ul>
 		<li>Obra/ListarObra</li>

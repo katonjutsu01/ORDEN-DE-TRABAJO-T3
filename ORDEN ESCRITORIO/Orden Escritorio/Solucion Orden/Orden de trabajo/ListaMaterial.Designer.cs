@@ -47,6 +47,7 @@
             this.dataMaterial.Name = "dataMaterial";
             this.dataMaterial.Size = new System.Drawing.Size(400, 373);
             this.dataMaterial.TabIndex = 1;
+            this.dataMaterial.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataMaterial_CellClick);
             // 
             // label1
             // 
@@ -106,6 +107,7 @@
             this.btnModificarMaterial.TabIndex = 8;
             this.btnModificarMaterial.Text = "Modificar";
             this.btnModificarMaterial.UseVisualStyleBackColor = true;
+            this.btnModificarMaterial.Click += new System.EventHandler(this.btnModificarMaterial_Click);
             // 
             // btnEliminarMaterial
             // 

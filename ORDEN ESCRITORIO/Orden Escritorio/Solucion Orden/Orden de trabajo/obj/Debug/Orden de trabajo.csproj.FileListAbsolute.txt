@@ -15,3 +15,4 @@ D:\CHIBOLO\usuario\Desktop\Orden Escritorio\Solucion Orden\Orden de trabajo\obj\
 D:\CHIBOLO\usuario\Desktop\Orden Escritorio\Solucion Orden\Orden de trabajo\obj\Debug\Orden_de_trabajo.CrearObra.resources
 D:\CHIBOLO\usuario\Desktop\Orden Escritorio\Solucion Orden\Orden de trabajo\obj\Debug\Orden_de_trabajo.ListaActividad.resources
 D:\CHIBOLO\usuario\Desktop\Orden Escritorio\Solucion Orden\Orden de trabajo\obj\Debug\Orden_de_trabajo.ListaMaterial.resources
+D:\CHIBOLO\usuario\Desktop\Orden Escritorio\Solucion Orden\Orden de trabajo\obj\Debug\Orden_de_trabajo.CrearMaterial.resources

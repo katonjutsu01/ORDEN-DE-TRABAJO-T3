@@ -57,6 +57,12 @@
     <Compile Include="CrearActividad.Designer.cs">
       <DependentUpon>CrearActividad.cs</DependentUpon>
     </Compile>
+    <Compile Include="CrearMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrearMaterial.Designer.cs">
+      <DependentUpon>CrearMaterial.cs</DependentUpon>
+    </Compile>
     <Compile Include="CrearObra.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CrearActividad.resx">
       <DependentUpon>CrearActividad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrearMaterial.resx">
+      <DependentUpon>CrearMaterial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CrearObra.resx">
       <DependentUpon>CrearObra.cs</DependentUpon>

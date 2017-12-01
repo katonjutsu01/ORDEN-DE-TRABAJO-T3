@@ -36,5 +36,15 @@ public class OrdenController {
 		}
 		return o;
 	}
-
+	@RequestMapping(value = "/Orden/ListarOrdenPorObra", method = RequestMethod.GET, 
+			produces ="application/json")
+	public @ResponseBody ArrayList<Ordendetrabajo> ListarOrdenPorObra(int idobra) {
+		ArrayList<Ordendetrabajo> o = null;
+		try {
+			o = daoOrden.Instancia().ListarOrdenPorObra(idobra);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return o;
+	}
 }

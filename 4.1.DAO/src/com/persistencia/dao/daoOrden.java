@@ -69,4 +69,34 @@ public class daoOrden {
 		finally{cn.close();}
 		return lista;
 	}
+	public ArrayList<Ordendetrabajo> ListarOrdenPorObra(int _idObra) throws Exception{
+		Connection cn = Conexion.conectar();
+		ArrayList<Ordendetrabajo> lista = new ArrayList<Ordendetrabajo>();
+		try {
+			CallableStatement cst = cn.prepareCall("{call spListaOrdenPorObra(?)}");
+			cst.setInt(1, _idObra);
+			ResultSet rs = cst.executeQuery();
+			while(rs.next()){
+				Ordendetrabajo o = new Ordendetrabajo();
+				o.setIdorden(rs.getInt("idorden"));
+				o.setNombre(rs.getString("nombre"));
+				o.setEstado(rs.getString("estado"));		
+                Obra ob = new Obra();
+                	ob.setIdobra(rs.getInt("idobra"));
+                	ob.setNombre(rs.getString("DObra"));
+                o.setObra(ob);
+                Trabajador trab = new Trabajador();
+                trab.setIdTrabajador(rs.getInt("idTrabajador"));
+                trab.setApellidos(rs.getString("DTrabajador"));
+                o.setTrabajador(trab);
+                Actividad a = new Actividad();
+                a.setIdActividad(rs.getInt("idActividad"));
+                a.setDescripcion(rs.getString("DActividad"));
+                o.setActividad(a);
+				lista.add(o);
+			}
+		} catch (Exception e) { throw e;}
+		finally{cn.close();}
+		return lista;
+	}
 }
