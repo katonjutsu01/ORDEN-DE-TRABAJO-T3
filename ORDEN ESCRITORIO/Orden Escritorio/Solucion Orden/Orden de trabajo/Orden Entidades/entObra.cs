@@ -12,6 +12,6 @@ namespace Orden_de_trabajo.Orden_Entidades
         public String descripcion { get; set; }
         public entPresupuesto Presupuesto { get; set; }
         public String nombre { get; set; }
-        public Boolean activo { get; set; }
+        //public Boolean ?activo { get; set; }
     }
 }

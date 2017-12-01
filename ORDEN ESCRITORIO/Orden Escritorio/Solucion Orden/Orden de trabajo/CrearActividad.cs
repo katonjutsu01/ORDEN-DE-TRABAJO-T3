@@ -20,16 +20,48 @@ namespace Orden_de_trabajo
 
         async private void btnGuardar_Click(object sender, EventArgs e)
         {
-            
-            Boolean insertarActividad = await clienteRest.InsertarActividad(txtDes.Text, txtTiempo.Text);
-            if (insertarActividad)
+            if (Verifartext())
             {
-                //limpiar();
-                MessageBox.Show("Actividad creada correcto", "REGISTRO GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+
+                Boolean insertarActividad = await clienteRest.InsertarActividad(txtDes.Text, txtTiempo.Text);
+                if (insertarActividad)
+                {
+                    //limpiar();
+                    Hide();
+                    MessageBox.Show("Actividad creada correcto", "REGISTRO GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    ListaActividad la = new ListaActividad();
+                    la.Show();
+                }
+                else
+                {
+                    MessageBox.Show("No se ha podido Registrar Actividad", "REGISTRO GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            PantallaMantenedor pm = new PantallaMantenedor();
+            pm.Show();
+            Hide();
+        }
+        public Boolean Verifartext()
+        {
+            if (String.IsNullOrEmpty(txtDes.Text.Trim()))
             {
-                MessageBox.Show("No se ha podido Registrar Actividad");
+                MessageBox.Show("Debe ingresar una descripcion", "VALIDAR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                
+                
+                return false;
+            }else
+            {
+                if (String.IsNullOrEmpty(txtTiempo.Text.Trim()))
+                {
+                    MessageBox.Show("Debe ingresar un tiempo", "VALIDAR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    
+                    return false;
+                }
+                else return true;
             }
         }
     }

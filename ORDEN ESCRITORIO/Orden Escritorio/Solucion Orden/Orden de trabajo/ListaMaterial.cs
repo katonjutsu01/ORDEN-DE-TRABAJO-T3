@@ -31,13 +31,13 @@ namespace Orden_de_trabajo
             if (eliminarActividad)
             {
                 //limpiar();
-                MessageBox.Show("Material Eliminado", "ELIMINADO REALIZADO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Material Eliminado", "ELIMINADO REALIZADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 List<entMaterial> a = await clienteRest.ListarMaterial();
                 dataMaterial.DataSource = a;
             }
             else
             {
-                MessageBox.Show("No se ha podido eliminar la Material");
+                MessageBox.Show("No se ha podido eliminar la Material","ELIMINAR MATERIAL", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -49,17 +49,22 @@ namespace Orden_de_trabajo
 
         private async void btnModificarMaterial_Click(object sender, EventArgs e)
         {
-            Boolean modificarMaterial = await clienteRest.ModificarMaterial(txtIdMaterial.Text, txtNombreMaterial.Text, cmbTipo.SelectedValue.ToString());
-            if (modificarMaterial)
+            if (Verifartext())
             {
-                //limpiar();
-                MessageBox.Show("Material Modificada", "REGISTRO GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                List<entMaterial> m = await clienteRest.ListarMaterial();
-                dataMaterial.DataSource = m;
-            }
-            else
-            {
-                MessageBox.Show("No se ha podido Modificar el Material");
+
+
+                Boolean modificarMaterial = await clienteRest.ModificarMaterial(txtIdMaterial.Text, txtNombreMaterial.Text, cmbTipo.SelectedValue.ToString());
+                if (modificarMaterial)
+                {
+                    //limpiar();
+                    MessageBox.Show("Material Modificada", "REGISTRO GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    List<entMaterial> m = await clienteRest.ListarMaterial();
+                    dataMaterial.DataSource = m;
+                }
+                else
+                {
+                    MessageBox.Show("No se ha podido Modificar el Material", "REGISTRO GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -80,5 +85,30 @@ namespace Orden_de_trabajo
                 cmbTipo.Text = m.TipoMaterial.descripcion;                
             }
         }
-    }
+
+        private void dataMaterial_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            PantallaMantenedor pm = new PantallaMantenedor();
+            pm.Show();
+            Hide();
+        }
+
+        public Boolean Verifartext()
+        {
+            if (String.IsNullOrEmpty(txtNombreMaterial.Text.Trim()))
+            {
+                MessageBox.Show("Debe ingresar un Nombre Material", "VALIDAR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                return false;
+            }
+            else return true;
+
+        }
+    
+}
 }

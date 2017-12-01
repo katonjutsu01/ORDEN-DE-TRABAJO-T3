@@ -44,7 +44,7 @@ public class COREOrdenTrabajo {
 		}
 	}
 	
-	/*@RequestMapping(value = "/COREOrdenTrabajo/GuardarOrdenTrabajo", method = RequestMethod.POST)
+	@RequestMapping(value = "/COREOrdenTrabajo/GuardarOrdenTrabajo", method = RequestMethod.POST)
 	public String NuevoOrden(@ModelAttribute("SpringWeb")Ordendetrabajo o) {
 		try {
 			RestTemplate rest = new RestTemplate();
@@ -63,5 +63,5 @@ public class COREOrdenTrabajo {
 		}catch(Exception e){
 			return "redirect:/COREOrdenTrabajo/error?msg="+e.getMessage();
 		}
-	}*/
+	}
 }

@@ -32,8 +32,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.txtContraseña = new System.Windows.Forms.TextBox();
             this.btnIngresar = new System.Windows.Forms.Button();
+            this.txtContraseña = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -70,13 +70,6 @@
             this.txtUsuario.Size = new System.Drawing.Size(163, 20);
             this.txtUsuario.TabIndex = 3;
             // 
-            // txtContraseña
-            // 
-            this.txtContraseña.Location = new System.Drawing.Point(109, 98);
-            this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Size = new System.Drawing.Size(163, 20);
-            this.txtContraseña.TabIndex = 4;
-            // 
             // btnIngresar
             // 
             this.btnIngresar.Location = new System.Drawing.Point(109, 148);
@@ -87,11 +80,21 @@
             this.btnIngresar.UseVisualStyleBackColor = true;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
+            // txtContraseña
+            // 
+            this.txtContraseña.Location = new System.Drawing.Point(109, 98);
+            this.txtContraseña.Name = "txtContraseña";
+            this.txtContraseña.PasswordChar = '*';
+            this.txtContraseña.Size = new System.Drawing.Size(163, 20);
+            this.txtContraseña.TabIndex = 4;
+            this.txtContraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContraseña_KeyPress);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.ClientSize = new System.Drawing.Size(307, 265);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.txtUsuario);
@@ -99,7 +102,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "CONSTRUCTORA BECTEK-LOGIN";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -111,8 +114,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtUsuario;
-        private System.Windows.Forms.TextBox txtContraseña;
         private System.Windows.Forms.Button btnIngresar;
+        private System.Windows.Forms.TextBox txtContraseña;
     }
 }
 

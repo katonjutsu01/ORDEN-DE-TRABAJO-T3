@@ -34,6 +34,7 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.txtDes = new System.Windows.Forms.TextBox();
             this.txtTiempo = new System.Windows.Forms.TextBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -65,7 +66,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(136, 172);
+            this.btnGuardar.Location = new System.Drawing.Point(216, 161);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 3;
@@ -87,11 +88,23 @@
             this.txtTiempo.Size = new System.Drawing.Size(155, 20);
             this.txtTiempo.TabIndex = 5;
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(91, 161);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 6;
+            this.btnCancelar.Text = "CANCELAR";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
             // CrearActividad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(337, 221);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.ClientSize = new System.Drawing.Size(369, 226);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.txtTiempo);
             this.Controls.Add(this.txtDes);
             this.Controls.Add(this.btnGuardar);
@@ -99,7 +112,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "CrearActividad";
-            this.Text = "CrearActividad";
+            this.Text = "CONSTRUCTORA BECTEK-CREAR ACTIVIDAD";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -113,5 +126,6 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.TextBox txtDes;
         private System.Windows.Forms.TextBox txtTiempo;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

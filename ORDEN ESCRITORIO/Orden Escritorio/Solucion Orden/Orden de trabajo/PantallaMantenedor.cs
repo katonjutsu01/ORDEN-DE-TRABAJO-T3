@@ -21,6 +21,8 @@ namespace Orden_de_trabajo
         {
             CrearActividad ca = new CrearActividad();
             ca.Show();
+            Hide();
+            
         }
 
         private void listarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -52,6 +54,30 @@ namespace Orden_de_trabajo
             CrearMaterial cm = new CrearMaterial();
             cm.Show();
             Hide();
+        }
+
+        private void listarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ListaObra lo = new ListaObra();
+            lo.Show();
+            Hide();
+        }
+
+        private void crearToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            CrearObra co = new CrearObra();
+            co.Show();
+            Hide();
+        }
+
+        private void salirToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void salirToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

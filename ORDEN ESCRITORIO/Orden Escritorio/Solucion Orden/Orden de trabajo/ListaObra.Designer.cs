@@ -37,6 +37,9 @@
             this.btnEliminarObra = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbPresupuestoObra = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtIdObra = new System.Windows.Forms.TextBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataObra)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,11 +50,12 @@
             this.dataObra.Name = "dataObra";
             this.dataObra.Size = new System.Drawing.Size(397, 298);
             this.dataObra.TabIndex = 0;
+            this.dataObra.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataObra_CellClick);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(427, 31);
+            this.label1.Location = new System.Drawing.Point(427, 76);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 1;
@@ -60,7 +64,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(427, 86);
+            this.label2.Location = new System.Drawing.Point(427, 113);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 13);
             this.label2.TabIndex = 2;
@@ -68,40 +72,42 @@
             // 
             // txtNombreObra
             // 
-            this.txtNombreObra.Location = new System.Drawing.Point(500, 24);
+            this.txtNombreObra.Location = new System.Drawing.Point(499, 69);
             this.txtNombreObra.Name = "txtNombreObra";
             this.txtNombreObra.Size = new System.Drawing.Size(150, 20);
             this.txtNombreObra.TabIndex = 3;
             // 
             // txtDescripcionObra
             // 
-            this.txtDescripcionObra.Location = new System.Drawing.Point(500, 79);
+            this.txtDescripcionObra.Location = new System.Drawing.Point(499, 106);
             this.txtDescripcionObra.Name = "txtDescripcionObra";
             this.txtDescripcionObra.Size = new System.Drawing.Size(150, 20);
             this.txtDescripcionObra.TabIndex = 4;
             // 
             // btnModificarObra
             // 
-            this.btnModificarObra.Location = new System.Drawing.Point(500, 158);
+            this.btnModificarObra.Location = new System.Drawing.Point(500, 179);
             this.btnModificarObra.Name = "btnModificarObra";
             this.btnModificarObra.Size = new System.Drawing.Size(88, 23);
             this.btnModificarObra.TabIndex = 5;
             this.btnModificarObra.Text = "Modificar";
             this.btnModificarObra.UseVisualStyleBackColor = true;
+            this.btnModificarObra.Click += new System.EventHandler(this.btnModificarObra_Click);
             // 
             // btnEliminarObra
             // 
-            this.btnEliminarObra.Location = new System.Drawing.Point(500, 196);
+            this.btnEliminarObra.Location = new System.Drawing.Point(500, 222);
             this.btnEliminarObra.Name = "btnEliminarObra";
             this.btnEliminarObra.Size = new System.Drawing.Size(88, 23);
             this.btnEliminarObra.TabIndex = 6;
             this.btnEliminarObra.Text = "Eliminar";
             this.btnEliminarObra.UseVisualStyleBackColor = true;
+            this.btnEliminarObra.Click += new System.EventHandler(this.btnEliminarObra_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(430, 126);
+            this.label3.Location = new System.Drawing.Point(427, 151);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 13);
             this.label3.TabIndex = 7;
@@ -110,17 +116,47 @@
             // cmbPresupuestoObra
             // 
             this.cmbPresupuestoObra.FormattingEnabled = true;
-            this.cmbPresupuestoObra.Location = new System.Drawing.Point(500, 117);
+            this.cmbPresupuestoObra.Location = new System.Drawing.Point(500, 143);
             this.cmbPresupuestoObra.Name = "cmbPresupuestoObra";
             this.cmbPresupuestoObra.Size = new System.Drawing.Size(150, 21);
             this.cmbPresupuestoObra.TabIndex = 8;
             this.cmbPresupuestoObra.Text = "Seleccionar";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(430, 39);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(19, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Id:";
+            // 
+            // txtIdObra
+            // 
+            this.txtIdObra.Location = new System.Drawing.Point(499, 31);
+            this.txtIdObra.Name = "txtIdObra";
+            this.txtIdObra.Size = new System.Drawing.Size(150, 20);
+            this.txtIdObra.TabIndex = 10;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(500, 262);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(88, 23);
+            this.btnCancelar.TabIndex = 11;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
             // ListaObra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(662, 400);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.txtIdObra);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.cmbPresupuestoObra);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnEliminarObra);
@@ -132,6 +168,7 @@
             this.Controls.Add(this.dataObra);
             this.Name = "ListaObra";
             this.Text = "ListaObra";
+            this.Load += new System.EventHandler(this.ListaObra_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataObra)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -149,5 +186,8 @@
         private System.Windows.Forms.Button btnEliminarObra;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cmbPresupuestoObra;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtIdObra;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

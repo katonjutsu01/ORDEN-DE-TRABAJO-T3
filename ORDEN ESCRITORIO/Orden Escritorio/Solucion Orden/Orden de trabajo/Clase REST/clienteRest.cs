@@ -16,7 +16,7 @@ namespace Orden_de_trabajo.Clase_REST
         {
             using (HttpClient rest = new HttpClient())
             {
-                using (HttpResponseMessage response = await rest.GetAsync("http://localhost:8080/rest/Usuario/VerificarAcceso?user="+userName+"&pass="+password))
+                using (HttpResponseMessage response = await rest.GetAsync("http://sowad64496.azurewebsites.net/RestT3/Usuario/VerificarAcceso?user=" + userName+"&pass="+password))
                 {
                     using (HttpContent content = response.Content)
                     {
@@ -43,7 +43,7 @@ namespace Orden_de_trabajo.Clase_REST
         {
             using (HttpClient rest = new HttpClient())
             {
-                using (HttpResponseMessage response = await rest.GetAsync("http://localhost:8080/rest/Actividad/InsertarActividad?descripcion="+Descripcion+"&tiempoestimado="+tiempoestimado))
+                using (HttpResponseMessage response = await rest.GetAsync("http://sowad64496.azurewebsites.net/RestT3/Actividad/InsertarActividad?descripcion=" + Descripcion+"&tiempoestimado="+tiempoestimado))
                 {
                     using (HttpContent content = response.Content)
                     {
@@ -62,7 +62,7 @@ namespace Orden_de_trabajo.Clase_REST
         {
             using (HttpClient rest = new HttpClient())
             {
-                using (HttpResponseMessage response = await rest.GetAsync("http://localhost:8080/rest/Actividad/ListarActividad"))
+                using (HttpResponseMessage response = await rest.GetAsync("http://sowad64496.azurewebsites.net/RestT3/Actividad/ListarActividad"))
                 {
                     using (HttpContent content = response.Content)
                     {
@@ -86,7 +86,7 @@ namespace Orden_de_trabajo.Clase_REST
         {
             using (HttpClient rest = new HttpClient())
             {
-                using (HttpResponseMessage response = await rest.GetAsync("http://localhost:8080/rest/Actividad/DevolverActividad?idActividad="+id))
+                using (HttpResponseMessage response = await rest.GetAsync("http://sowad64496.azurewebsites.net/RestT3/Actividad/DevolverActividad?idActividad=" + id))
                 {
                     using (HttpContent content = response.Content)
                     {
@@ -110,7 +110,7 @@ namespace Orden_de_trabajo.Clase_REST
         {
             using (HttpClient rest = new HttpClient())
             {
-                using (HttpResponseMessage response = await rest.GetAsync("http://localhost:8080/rest/Actividad/EditarActividad?idActividad=" + id + "&descripcion=" + Descripcion + "&tiempoestimado=" + tiempoestimado))
+                using (HttpResponseMessage response = await rest.GetAsync("http://sowad64496.azurewebsites.net/RestT3/Actividad/EditarActividad?idActividad=" + id + "&descripcion=" + Descripcion + "&tiempoestimado=" + tiempoestimado))
                 {
                     using (HttpContent content = response.Content)
                     {
@@ -129,7 +129,7 @@ namespace Orden_de_trabajo.Clase_REST
         {
             using (HttpClient rest = new HttpClient())
             {
-                using (HttpResponseMessage response = await rest.GetAsync("http://localhost:8080/rest/Actividad/EliminarActividad?idActividad="+id))
+                using (HttpResponseMessage response = await rest.GetAsync("http://sowad64496.azurewebsites.net/RestT3/Actividad/EliminarActividad?idActividad=" + id))
                 {
                     using (HttpContent content = response.Content)
                     {
@@ -151,7 +151,7 @@ namespace Orden_de_trabajo.Clase_REST
         {
             using (HttpClient rest = new HttpClient())
             {
-                using (HttpResponseMessage response = await rest.GetAsync("http://localhost:8080/rest/Material/ListarMaterial"))
+                using (HttpResponseMessage response = await rest.GetAsync("http://sowad64496.azurewebsites.net/RestT3/Material/ListarMaterial"))
                 {
                     using (HttpContent content = response.Content)
                     {
@@ -176,7 +176,7 @@ namespace Orden_de_trabajo.Clase_REST
         {
             using (HttpClient rest = new HttpClient())
             {
-                using (HttpResponseMessage response = await rest.GetAsync("http://localhost:8080/rest/TipoMaterial/ListarTipoMaterial"))
+                using (HttpResponseMessage response = await rest.GetAsync("http://sowad64496.azurewebsites.net/RestT3/TipoMaterial/ListarTipoMaterial"))
                 {
                     using (HttpContent content = response.Content)
                     {
@@ -200,7 +200,7 @@ namespace Orden_de_trabajo.Clase_REST
         {
             using (HttpClient rest = new HttpClient())
             {
-                using (HttpResponseMessage response = await rest.GetAsync("http://localhost:8080/rest/Material/InsertarMaterial?nombre=" + nombre + "&idtipomaterial=" + idTipMat))
+                using (HttpResponseMessage response = await rest.GetAsync("http://sowad64496.azurewebsites.net/RestT3/Material/InsertarMaterial?nombre=" + nombre + "&idtipomaterial=" + idTipMat))
                 {
                     using (HttpContent content = response.Content)
                     {
@@ -220,7 +220,7 @@ namespace Orden_de_trabajo.Clase_REST
         {
             using (HttpClient rest = new HttpClient())
             {
-                using (HttpResponseMessage response = await rest.GetAsync("http://localhost:8080/rest/Material/DevolverMaterial?idmaterial=" + id))
+                using (HttpResponseMessage response = await rest.GetAsync("http://sowad64496.azurewebsites.net/RestT3/Material/DevolverMaterial?idmaterial=" + id))
                 {
                     using (HttpContent content = response.Content)
                     {
@@ -245,7 +245,7 @@ namespace Orden_de_trabajo.Clase_REST
         {
             using (HttpClient rest = new HttpClient())
             {
-                using (HttpResponseMessage response = await rest.GetAsync("http://localhost:8080/rest/Material/EditarMaterial?idmaterial=" + idMat + "&nombre=" + nombre + "&idtipomaterial=" + idTipMat))
+                using (HttpResponseMessage response = await rest.GetAsync("http://sowad64496.azurewebsites.net/RestT3/Material/EditarMaterial?idmaterial=" + idMat + "&nombre=" + nombre + "&idtipomaterial=" + idTipMat))
                 {
                     using (HttpContent content = response.Content)
                     {
@@ -265,7 +265,7 @@ namespace Orden_de_trabajo.Clase_REST
         {
             using (HttpClient rest = new HttpClient())
             {
-                using (HttpResponseMessage response = await rest.GetAsync("http://localhost:8080/rest/Material/EliminarMaterial?idmaterial=" + id))
+                using (HttpResponseMessage response = await rest.GetAsync("http://sowad64496.azurewebsites.net/RestT3/Material/EliminarMaterial?idmaterial=" + id))
                 {
                     using (HttpContent content = response.Content)
                     {
@@ -281,5 +281,146 @@ namespace Orden_de_trabajo.Clase_REST
 
         }
         #endregion
+
+        
+
+
+        #region MANTENEDOR OBRA
+
+        public static async Task<List<entObra>> ListarObra()
+        {
+            using (HttpClient rest = new HttpClient())
+            {
+                using (HttpResponseMessage response = await rest.GetAsync("http://sowad64496.azurewebsites.net/RestT3/Obra/ListarObra"))
+                {
+                    using (HttpContent content = response.Content)
+                    {
+                        String b = await content.ReadAsStringAsync();
+                        var obj = JsonConvert.DeserializeObject<List<entObra>>(b);
+                        List<entObra> m = obj.ToList();
+                        if (m != null)
+                        {
+                            return await Task.Run(() => m);
+                        }
+                        else
+                            return await Task.FromResult<List<entObra>>(null);
+                    }
+
+                }
+
+            }
+
+        }
+
+        public static async Task<List<entPresupuesto>> ListarPresupuesto()
+        {
+            using (HttpClient rest = new HttpClient())
+            {
+                using (HttpResponseMessage response = await rest.GetAsync("http://sowad64496.azurewebsites.net/RestT3/Presupuesto/ListarPresupuesto"))
+                {
+                    using (HttpContent content = response.Content)
+                    {
+                        String b = await content.ReadAsStringAsync();
+                        var obj = JsonConvert.DeserializeObject<List<entPresupuesto>>(b);
+                        List<entPresupuesto> tm = obj.ToList();
+                        if (tm != null)
+                        {
+                            return await Task.Run(() => tm);
+                        }
+                        else
+                            return await Task.FromResult<List<entPresupuesto>>(null);
+                    }
+
+                }
+
+            }
+
+        }
+        public static async Task<Boolean> InsertarObra(String nombre, String Descripcion, String idpresupuesto)
+        {
+            using (HttpClient rest = new HttpClient())
+            {
+                using (HttpResponseMessage response = await rest.GetAsync("http://sowad64496.azurewebsites.net/RestT3/Obra/InsertarObra?nombre=" + nombre + "&descripcion="+Descripcion+"&idpresupuesto=" + idpresupuesto))
+                {
+                    using (HttpContent content = response.Content)
+                    {
+                        String b = await content.ReadAsStringAsync();
+                        var obj = JsonConvert.DeserializeObject<Boolean>(b);
+                        Boolean inserto = (Boolean)obj;
+                        return await Task.Run(() => inserto);
+                    }
+
+                }
+
+            }
+        }
+
+
+        public static async Task<entObra> DevolverObra(String id)
+        {
+            using (HttpClient rest = new HttpClient())
+            {
+                using (HttpResponseMessage response = await rest.GetAsync("http://sowad64496.azurewebsites.net/RestT3/Obra/DevolverObra?idobra=" + id))
+                {
+                    using (HttpContent content = response.Content)
+                    {
+                        String b = await content.ReadAsStringAsync();
+                        var obj = JsonConvert.DeserializeObject<entObra>(b);
+                        entObra a = (entObra)obj;
+                        if (a != null)
+                        {
+                            return await Task.Run(() => a);
+                        }
+                        else
+                            return await Task.FromResult<entObra>(null);
+                    }
+
+                }
+
+            }
+
+        }
+
+        public static async Task<Boolean> ModificarObra(String idobra,String nombre, String Descripcion, String idpresupuesto)
+        {
+            using (HttpClient rest = new HttpClient())
+            {
+                using (HttpResponseMessage response = await rest.GetAsync("http://localhost:8080/rest/Obra/EditarObra?idobra=" + idobra + "&nombre="+nombre+"&descripcion="+Descripcion+"&idpresupuesto="+idpresupuesto+"&activo=" + true))
+                {
+                    using (HttpContent content = response.Content)
+                    {
+                        String b = await content.ReadAsStringAsync();
+                        var obj = JsonConvert.DeserializeObject<Boolean>(b);
+                        Boolean modifico = (Boolean)obj;
+                        return await Task.Run(() => modifico);
+                    }
+
+                }
+
+            }
+
+        }
+
+        public static async Task<Boolean> EliminarObra(String id)
+        {
+            using (HttpClient rest = new HttpClient())
+            {
+                using (HttpResponseMessage response = await rest.GetAsync("http://localhost:8080/rest/Obra/EliminarObra?idobra=" + id))
+                {
+                    using (HttpContent content = response.Content)
+                    {
+                        String b = await content.ReadAsStringAsync();
+                        var obj = JsonConvert.DeserializeObject<Boolean>(b);
+                        Boolean elimino = (Boolean)obj;
+                        return await Task.Run(() => elimino);
+                    }
+
+                }
+
+            }
+
+        }
+        #endregion
+        
     }
 }

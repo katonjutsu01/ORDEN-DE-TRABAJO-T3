@@ -24,14 +24,36 @@ namespace Orden_de_trabajo
             entUsuario u = await clienteRest.VerificarAcceso(txtUsuario.Text, txtContraseña.Text);
             if (u != null)
             {
-                MessageBox.Show("Bienvenido:" + u.Trabajador.nombres + " " + u.Trabajador.apellidos);
+
+                Hide();
+                MessageBox.Show("Bienvenido:" + u.Trabajador.nombres + " " + u.Trabajador.apellidos,"Verificar Acceso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 PantallaMantenedor p = new PantallaMantenedor();
                 p.Show();
-                Hide();
             }
             else
             {
-                MessageBox.Show("Usuario o Contraseña Incorrectos");
+                MessageBox.Show("Usuario o Contraseña Incorrectos","Verificar Acceso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void txtContraseña_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+
+                entUsuario u = await clienteRest.VerificarAcceso(txtUsuario.Text, txtContraseña.Text);
+                if (u != null)
+                {
+                    Hide();
+                    MessageBox.Show("Bienvenido:" + u.Trabajador.nombres + " " + u.Trabajador.apellidos, "Verificar Acceso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    PantallaMantenedor p = new PantallaMantenedor();
+                    p.Show();
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Usuario o Contraseña Incorrectos", "Verificar Acceso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

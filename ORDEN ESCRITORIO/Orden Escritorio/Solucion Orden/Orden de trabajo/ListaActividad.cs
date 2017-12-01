@@ -27,19 +27,23 @@ namespace Orden_de_trabajo
 
         private async void btnModificarActividad_Click(object sender, EventArgs e)
         {
-            Boolean modificarActividad = await clienteRest.ModificarActividad( txtDescripcion.Text, txtTiempo.Text, txtid.Text);
-            if (modificarActividad)
+            if (Verifartext())
             {
-                //limpiar();
-                MessageBox.Show("Actividad Modificada", "REGISTRO GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                List<entActividad> a = await clienteRest.ListarActividad();
-                dataActividad.DataSource = a;
-            }
-            else
-            {
-                MessageBox.Show("No se ha podido Modificar Actividad");
-            }
 
+
+                Boolean modificarActividad = await clienteRest.ModificarActividad(txtDescripcion.Text, txtTiempo.Text, txtid.Text);
+                if (modificarActividad)
+                {
+                    //limpiar();
+                    MessageBox.Show("Actividad Modificada", "REGISTRO GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    List<entActividad> a = await clienteRest.ListarActividad();
+                    dataActividad.DataSource = a;
+                }
+                else
+                {
+                    MessageBox.Show("No se ha podido Modificar Actividad", "REGISTRO GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private async void dataActividad_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -60,13 +64,39 @@ namespace Orden_de_trabajo
             if (eliminarActividad)
             {
                 //limpiar();
-                MessageBox.Show("Actividad Eliminada", "ELIMINADO REALIZADO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Actividad Eliminada", "ELIMINADO REALIZADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 List<entActividad> a = await clienteRest.ListarActividad();
                 dataActividad.DataSource = a;
             }
             else
             {
-                MessageBox.Show("No se ha podido eliminar la Actividad");
+                MessageBox.Show("No se ha podido eliminar la Actividad", "ELIMINAR ACTIVIDAD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            PantallaMantenedor pm = new PantallaMantenedor();
+            pm.Show();
+            Hide();
+        }
+        public Boolean Verifartext()
+        {
+            if (String.IsNullOrEmpty(txtDescripcion.Text.Trim()))
+            {
+                MessageBox.Show("Debe ingresar una descripcion", "VALIDAR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                return false;
+            }
+            else
+            {
+                if (String.IsNullOrEmpty(txtTiempo.Text.Trim()))
+                {
+                    MessageBox.Show("Debe ingresar un tiempo", "VALIDAR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                    return false;
+                }
+                else return true;
             }
         }
     }

@@ -36,6 +36,8 @@
             this.btnModificarActividad = new System.Windows.Forms.Button();
             this.btnEliminarActividad = new System.Windows.Forms.Button();
             this.txtid = new System.Windows.Forms.TextBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataActividad)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,11 +109,33 @@
             this.txtid.Size = new System.Drawing.Size(100, 20);
             this.txtid.TabIndex = 7;
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(457, 201);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 8;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(393, 40);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(19, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Id:";
+            // 
             // ListaActividad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(622, 439);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.txtid);
             this.Controls.Add(this.btnEliminarActividad);
             this.Controls.Add(this.btnModificarActividad);
@@ -121,7 +145,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataActividad);
             this.Name = "ListaActividad";
-            this.Text = "ListaActividad";
+            this.Text = "CONSTRUCTORA BECTEK-LISTA ACTIVIDAD";
             this.Load += new System.EventHandler(this.ListaActividad_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataActividad)).EndInit();
             this.ResumeLayout(false);
@@ -139,5 +163,7 @@
         private System.Windows.Forms.Button btnModificarActividad;
         private System.Windows.Forms.Button btnEliminarActividad;
         private System.Windows.Forms.TextBox txtid;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Label label3;
     }
 }
